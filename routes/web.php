@@ -14,5 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+    $impfung = DB::table ( 'impfung' )->get();
+    return $impfung ;
+    // return view ('welcome', compact('location'));
 });
