@@ -19,3 +19,11 @@ Route::get('/', function () {
     return $impfung ;
     // return view ('welcome', compact('location'));
 });
+
+Route::get('/login', function () {
+    return "Hier kannst du dich einloggen" ;
+});
+
+Route::get('/login/impfanmeldung', function () {
+    return "Hier kannst du dich zur Impfung anmelden" ;
+});
