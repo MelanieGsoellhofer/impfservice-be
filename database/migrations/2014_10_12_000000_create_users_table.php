@@ -14,21 +14,20 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id('User_ID');
-            $table->string('Vorname');
-            $table->string('Nachname');
-            $table->string('Geschlecht');
-            $table->integer('SVNr');
-            $table->integer('TelefonNr');
-            $table->boolean('Impfung_Verabreicht');
-            $table->string('Rolle');
+            $table->id();
+            $table->string('firstname');
+            $table->string('lastname');
+            $table->string('gender');
+            $table->integer('svnr');
+            $table->integer('phonenumber');
+            $table->boolean('isvaccinated');
+            $table->string('role');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->bigInteger('impfung_id')->unsigned();
-            $table->foreign('impfung_id')
-                ->references('impfung_id')->on('impfungs')
-                ->onDelete('cascade');
+            $table->bigInteger('vaccination_id')->unsigned()->nullable();
+            $table->foreign('vaccination_id')
+                ->references('id')->on('vaccinations');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -13,7 +13,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        //$this->call(ImpfungTableSeeder::class);
+        $this->call(LocationTableSeeder::class);
+        $this->call(ImpfungTableSeeder::class);
         $this->call(UsersTableSeeder::class);
     }
 }

@@ -7,19 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Impfung extends Model
+class Vaccination extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'impfdatum', 'startzeitpunkt', 'endzeitpunkt', 'maxTN'
+        'vaccinationdate', 'starttime', 'endtime', 'maxparticipants'
     ];
 
     /*
      * Imfpung gehört genau zu einem Ort
      */
     public function location() : BelongsTo  {
-        return  $this->belongsTo(Impfort::class);
+        return  $this->belongsTo(Location::class);
     }
 
     /*

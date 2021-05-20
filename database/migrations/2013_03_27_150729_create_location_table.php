@@ -13,13 +13,12 @@ class CreateLocationTable extends Migration
      */
     public function up()
     {
-        Schema::create('impfort', function (Blueprint $table) {
-            $table->id('impfort_id');
-            $table->integer('plz');
-            $table->string('ort');
-            $table->string('adresse');
-            $table->integer('hausnummer');
-            $table->string('bezeichnung')->nullable();
+        Schema::create('locations', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->integer('zipcode');
+            $table->string('adress');
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }

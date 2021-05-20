@@ -13,16 +13,16 @@ class CreateVaccinationTable extends Migration
      */
     public function up()
     {
-        Schema::create('impfungs', function (Blueprint $table) {
-            $table->id('impfung_id');
-            $table->date('impfdatum');
-            $table->time('startzeitpunkt');
-            $table->time('endzeitpunkt');
-            $table->integer('maxTN');
-            $table->bigInteger('impfort_id')->unsigned();
-            $table->foreign('impfort_id')
-                ->references('impfort_id')->on('impfort')
-                ->onDelete('cascade');
+        Schema::create('vaccinations', function (Blueprint $table) {
+            $table->id();
+            $table->date('vaccinationdate');
+            $table->string('starttime');
+            $table->string('endtime');
+            $table->integer('maxparticipants');
+            /*default null weil:  Fehlermeldung: "location_id" can not be null - im Postman */
+            $table->bigInteger('location_id')->unsigned()->nullable()->default(null);
+            $table->foreign('location_id')
+                ->references('id')->on('locations');
             $table->timestamps();
         });
     }

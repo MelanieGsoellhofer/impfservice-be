@@ -18,5 +18,21 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('impfung', [\App\Http\Controllers\ImpfungController::class,'index']);
+/* auth */
+Route::post('auth/login', [\App\Http\Controllers\AuthController::class, 'login']);
 
+/*  GET  */
+Route::get('/', [\App\Http\Controllers\VaccinationController::class, 'index']);
+Route::get('impfungen', [\App\Http\Controllers\VaccinationController::class,'index']);
+Route::get('impfungen/{id}', [\App\Http\Controllers\VaccinationController::class,'findByID']);
+
+/*  POST, PUT, DELETE  */
+Route::post('impfungen', [\App\Http\Controllers\VaccinationController::class,'save']);
+Route::delete('impfungen/{id}' , [\App\Http\Controllers\VaccinationController::class,'delete']);
+Route::put('impfungen/{id}' , [\App\Http\Controllers\VaccinationController::class,'update']);
+
+// methoden die eine Authentication benötigen (save, update, delete)
+Route::group(['middleware' => ['api', 'auth.jwt']], function() {
+    Route::post('auth/logout', [App\Http\Controllers\AuthController::class, 'logout']);
+
+});

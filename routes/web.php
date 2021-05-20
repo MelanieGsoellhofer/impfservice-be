@@ -13,23 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\ImpfungController::class, 'index']);
 
-/* Route::get('/', function () {
-    Route ::get('/', [\App\Http\Controllers\ImfpungController::class, 'index']);
-    Route ::get('/impfungen', [\App\Http\Controllers\ImfpungController::class, 'index']);
-    Route ::get('/impfungen/{impfung_id}', [\App\Http\Controllers\ImfpungController::class, 'show']);
 
-   //return view('welcome');
-    $impfung = DB::table ( 'impfung' )->get();
-    return $impfung ;
-    // return view ('welcome', compact('location'));
-});
-
-Route::get('/login', function () {
-    return "Hier kannst du dich einloggen" ;
-});
-
-Route::get('/login/impfanmeldung', function () {
-    return "Hier kannst du dich zur Impfung anmelden" ; */
 
