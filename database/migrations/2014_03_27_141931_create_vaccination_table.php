@@ -18,7 +18,7 @@ class CreateVaccinationTable extends Migration
             $table->date('vaccinationdate');
             $table->string('starttime');
             $table->string('endtime');
-            $table->integer('maxparticipants');
+            $table->integer('maxparticipants')->default('30');
             /*default null weil:  Fehlermeldung: "location_id" can not be null - im Postman */
             $table->bigInteger('location_id')->unsigned()->nullable()->default(null);
             $table->foreign('location_id')

@@ -14,13 +14,13 @@ use Illuminate\Support\Facades\DB;
 class VaccinationController extends Controller
 {
     public function index(){
-       $impfungen = Vaccination::with(['persons', 'location'])->get();
+       $impfungen = Vaccination::with(['users', 'location'])->get();
        return $impfungen;
     }
 
     public function findByID(string $id){
         $impfung = Vaccination::where('id', $id)
-            ->with(['persons', 'location'])
+            ->with(['users', 'location'])
             ->first();
         return $impfung;
     }
@@ -74,7 +74,7 @@ class VaccinationController extends Controller
         try {
             // richtige Impfung rausholen
              $impfung = Vaccination::where('id', $id)
-            ->with(['persons', 'location'])
+            ->with(['users', 'location'])
             ->first();
             // var_dump($impfung); die();
             //return $request["location"];
@@ -105,7 +105,7 @@ class VaccinationController extends Controller
             //return $request["location"];
             $location->save();
             $impfung1 = Vaccination::where('id', $id)
-                ->with(['persons', 'location'])
+                ->with(['users', 'location'])
                 ->first();
 
             DB::commit();

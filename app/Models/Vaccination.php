@@ -25,7 +25,7 @@ class Vaccination extends Model
     /*
      * Imfpung has many Users
      */
-    public function persons() : HasMany{
+    public function users() : HasMany{
         return $this->hasMany(User::class);
     }
 

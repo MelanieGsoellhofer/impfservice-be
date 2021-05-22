@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('firstname');
             $table->string('lastname');
             $table->string('gender');
-            $table->integer('svnr');
+            $table->integer('svnr')->unique();
             $table->integer('phonenumber');
             $table->boolean('isvaccinated');
             $table->string('role');
