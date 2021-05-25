@@ -27,7 +27,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->bigInteger('vaccination_id')->unsigned()->nullable();
             $table->foreign('vaccination_id')
-                ->references('id')->on('vaccinations');
+                ->references('id')->on('vaccinations')
+                ->constrained()->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
         });

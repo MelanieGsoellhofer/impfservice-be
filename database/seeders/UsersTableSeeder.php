@@ -33,6 +33,7 @@ class UsersTableSeeder extends Seeder
         $user2->phonenumber = '0647865226';
         $user2->role = 'impfwillig';
         $user2->isvaccinated= true;
+        $user2->vaccination_id= 2;
         $user2->email = 'test@test.com';
         $user2->password = bcrypt('secret');
         $user2->save();
@@ -45,20 +46,34 @@ class UsersTableSeeder extends Seeder
         $user3->phonenumber = '0699365112';
         $user3->role = 'impfwillig';
         $user3->isvaccinated= false;
+        $user3->vaccination_id= 3;
         $user3->email = 'test123@test.com';
         $user3->password = bcrypt('secret');
         $user3->save();
 
-        $user3 = new \App\Models\User;
-        $user3->firstname = 'Patrick';
-        $user3->lastname = 'Papst';
-        $user3->gender = 'männlich';
-        $user3->svnr = '365774877';
-        $user3->phonenumber = '022587444';
-        $user3->role = 'impfwillig';
-        $user3->isvaccinated= true;
-        $user3->email = 'test@gmail.com';
-        $user3->password = bcrypt('secret');
-        $user3->save();
+        $user4 = new \App\Models\User;
+        $user4->firstname = 'Patrick';
+        $user4->lastname = 'Papst';
+        $user4->gender = 'männlich';
+        $user4->svnr = '365774877';
+        $user4->phonenumber = '022587444';
+        $user4->role = 'impfwillig';
+        $user4->isvaccinated= true;
+        $user4->vaccination_id= 2;
+        $user4->email = 'test@gmail.com';
+        $user4->password = bcrypt('secret');
+        $user4->save();
+
+        $user5 = new \App\Models\User;
+        $user5->firstname = 'Anna Sophie';
+        $user5->lastname = 'Musterhuber';
+        $user5->gender = 'weiblich';
+        $user5->svnr = '654325';
+        $user5->phonenumber = '985612';
+        $user5->role = 'admin';
+        $user5->isvaccinated= true;
+        $user5->email = 'admin1@test.com';
+        $user5->password = bcrypt('secret');
+        $user5->save();
     }
 }

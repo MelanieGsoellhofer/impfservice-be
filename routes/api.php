@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
+// Grundsätzlich unterscheidet Angular Out-of-the-box zwischen privaten und öffentlichen Routen
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -27,7 +27,12 @@ Route::get('impfungen', [\App\Http\Controllers\VaccinationController::class,'ind
 Route::get('impfungen/{id}', [\App\Http\Controllers\VaccinationController::class,'findByID']);
 Route::put('register/{id}/{svnr}' , [\App\Http\Controllers\UserController::class,'register']);
 
-// Methoden die eine Authentication benötigen (save, update, delete, logout)
+
+/*
+ * Methoden die eine Authentication benötigen (save, update, delete, logout)
+ * Middleware -> Hängt sich immer zwischen Request und Response hinein!
+ * Und macht somit eine private/geschützte Route daraus.
+ */
 Route::group(['middleware' => ['api', 'auth.jwt']], function() {
     Route::post('impfungen', [\App\Http\Controllers\VaccinationController::class,'save']);
     Route::delete('impfungen/{id}' , [\App\Http\Controllers\VaccinationController::class,'delete']);
