@@ -46,7 +46,6 @@ class UsersTableSeeder extends Seeder
         $user3->phonenumber = '0699365112';
         $user3->role = 'impfwillig';
         $user3->isvaccinated= false;
-        $user3->vaccination_id= 3;
         $user3->email = 'test123@test.com';
         $user3->password = bcrypt('secret');
         $user3->save();
@@ -75,5 +74,30 @@ class UsersTableSeeder extends Seeder
         $user5->email = 'admin1@test.com';
         $user5->password = bcrypt('secret');
         $user5->save();
+
+        $user6 = new \App\Models\User;
+        $user6->firstname = 'Maria';
+        $user6->lastname = 'Meeringer';
+        $user6->gender = 'weiblich';
+        $user6->svnr = '65433325';
+        $user6->phonenumber = '9854612';
+        $user6->role = 'impfwillig';
+        $user6->isvaccinated= true;
+        $user6->vaccination_id= 1;
+        $user6->email = 'testtest@test.com';
+        $user6->password = bcrypt('secret');
+        $user6->save();
+
+        $user6 = new \App\Models\User;
+        $user6->firstname = 'Philipp';
+        $user6->lastname = 'Meeringer';
+        $user6->gender = 'männlich';
+        $user6->svnr = '654377725';
+        $user6->phonenumber = '98544612';
+        $user6->role = 'impfwillig';
+        $user6->isvaccinated= false;
+        $user6->email = 'test55@test.com';
+        $user6->password = bcrypt('secret');
+        $user6->save();
     }
 }
